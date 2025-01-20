@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página web oficial de nuestra iglesia, un lugar de esperanza y fe.">
+    <meta name="author" content="Ing. Nestor Urias Castillo Abreu">
+    <title>Iglesia - Inicio</title>
+    <link rel="stylesheet" href="index_2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<style>
+/* Archivo CSS para la página de la Iglesia */
+
+/* General */
+
+* {
+font-family: Times New Roman, Arial, sans-serif;
+
+}
+body {
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+			transition: background-color 0.3s ease;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            padding: 20px;
+			justify-content: center;
+        }
+		
+        /* Auditorio */
+        #auditorium {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-gap: 10px;
+			justify-content: center;
+            margin-right: 20px;
+        }
+		@media (max-width: 768px) {
+            .auditorium {
+                grid-template-columns: repeat(5, 40px);
+            }
+        }
+
+        .seat {
+            width: 30px;
+            height: 30px;
+            background-color: #90ee90;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+			transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .seat.occupied {
+            background-color: #ff4d4d;
+			cursor: not-allowed;
+        }
+
+        .seat:hover {
+            background-color: #ffa500;
+        }
+
+        /* Contador de asientos */
+        #seat-count {
+            margin-top: 20px;
+			justify-content: center;
+        }
+
+        #seat-count span {
+		justify-content: center;
+            font-weight: bold;
+			align: center;
+        }
+/* Estilos para los botones de control */
+.tool-panel button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+/* Estilo cuando el botón está deshabilitado */
+.controls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Estilo para el texto debajo de los controles */
+.controls p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+/* Estilos para la gestión de usuarios */
+.user-management {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}		
+</style>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="iglesia web.html">
+                <img src="logo.jpg" alt="Logo Iglesia" width="70px"> Iglesia Asamblea de Dios "El Puerto"
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+					<li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Sobre Nosotros.html">Sobre Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="Servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Eventos.html">Eventos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Recursos.html">Recursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Donaciones.html">Donaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Miembros.html">Miembros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Contacto.html">Contacto</a></li>
+					<li class="nav-item"><a class="nav-link" href="Login.html">Login</a></li>
+					<li class="nav-item"><a class="nav-link" href="Configuracion y Accesibilidad.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner principal -->
+</head>
+<body>
+
+<!-- Botón de personalización -->
+    <button class="customization-button" id="toggle-panel">⚙</button>
+    <div id="customization-panel">
+        <h4>Personalización Básica</h4>
+        <div>
+            <label for="background-color">Color de fondo:</label>
+            <input type="color" id="background-color" value="#f9f9f9">
+        </div>
+        <div>
+            <label for="seat-size">Tamaño de los asientos:</label>
+            <input type="range" id="seat-size" min="20" max="60" value="30">
+        </div>
+        <div>
+            <label for="seat-color">Color de los asientos:</label>
+            <input type="color" id="seat-color" value="#90ee90">
+        </div>
+        <h4>Personalización Avanzada</h4>
+        <div>
+            <label for="seat-hover-color">Color al pasar el cursor:</label>
+            <input type="color" id="seat-hover-color" value="#ffa500">
+        </div>
+        <div>
+            <label for="occupied-color">Color de ocupados:</label>
+            <input type="color" id="occupied-color" value="#ff4d4d">
+        </div>
+        <h4>Funciones Interactivas</h4>
+        <div>
+            <button class="btn btn-primary w-100 mb-2" id="randomize-seats">Asignar aleatoriamente</button>
+        </div>
+        <div>
+            <button class="btn btn-danger w-100 mb-2" id="reset-customizations">Restablecer</button>
+        </div>
+    </div>
+    <!-- Botón para abrir el panel de herramientas -->
+    <button id="toggle-tools">Herramientas</button>
+
+    <!-- Panel de herramientas -->
+    <div id="tool-panel">
+        <button id="assign-row" disabled>Asignar Fila</button>
+        <button id="assign-column" disabled>Asignar Columna</button>
+        <button id="create-row" disabled>Crear Fila</button>
+        <button id="create-column" disabled>Crear Columna</button>
+        <button id="delete-row" disabled>Eliminar Fila</button>
+        <button id="delete-column" disabled>Eliminar Columna</button>
+		<button id="fillRow" disabled>Llenar una fila</button>
+        <button id="fillColumn" disabled>Llenar una columna</button>
+        <button id="resetSeats" disabled>Reiniciar Asientos</button>
+        <button id="exportSeats" disabled>Exportar Registro</button>
+		<button id="importButton" disabled>Importar Disposición</button>
+		<input type="file" id="importSeats" style="display:none;"> <!-- Input oculto para cargar archivo -->
+        <button id="reserveSeats" disabled>Reservar Sección</button>
+    </div>
+	<!-- Información de asientos -->
+        <div id="seat-count">
+            <p class="text-center">Asientos ocupados: <span id="occupiedCount">0</span> / Asientos disponibles: <span id="availableCount">100</span></p>
+        </div>
+    <div class="container">
+        <!-- Auditorio con asientos -->
+        <div id="auditorium"></div>
+    </div>
+	<div class="container">
+	<!-- Gestión de usuarios -->
+    <aside class="user-management">
+        <h2>Gestión de Usuarios</h2>
+        <!-- Formulario de inicio de sesión -->
+        <form id="loginForm">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <!-- Muestra el rol del usuario -->
+        <p>Rol actual: <span id="currentRole">Sin asignar</span></p>
+    </aside>
+</div>
+<!-- Pie de página -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Iglesia Asamblea de Dios "El Puerto". Todos los derechos reservados.</p>
+            <p>Síguenos en:
+                <a href="https://www.facebook.com/urias.abreu.549/about/" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        const rows = 10; // Número de filas
+        const cols = 10; // Número de columnas
+        let currentRows = rows;
+        let currentCols = cols;
+        const auditorium = document.getElementById("auditorium"); // Contenedor del Auditorio
+
+        // Crear el auditorio con los asientos
+        function createAuditorium() {
+            auditorium.innerHTML = ''; // Limpiar el auditorio antes de crear nuevos asientos
+            for (let i = 0; i < currentRows; i++) {
+                for (let j = 0; j < currentCols; j++) {
+                    const seat = document.createElement("div");
+                    seat.classList.add("seat");
+                    seat.setAttribute("data-row", i);
+                    seat.setAttribute("data-col", j);
+                    seat.addEventListener("click", toggleSeat);
+                    auditorium.appendChild(seat);
+                }
+            }
+            updateCount();
+        }
+		// Función de inicio de sesión
+document.getElementById("loginForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    
+    // Verificamos las credenciales y asignamos el rol
+    if (username === "admin" && password === "admin123") {
+        currentRole = "admin";  // Rol de administrador
+        alert("Bienvenido Administrador");
+    } else {
+        currentRole = "user";  // Rol de usuario normal
+        alert("Bienvenido Usuario Regular");
+    }
+
+    // Guardamos el rol en localStorage para persistencia
+    localStorage.setItem("role", currentRole);
+    toggleFeatures();  // Actualizamos las funcionalidades disponibles según el rol
+});
+
+// Al cargar la página, obtenemos el rol almacenado en localStorage
+window.onload = function() {
+    const storedRole = localStorage.getItem("role");
+    if (storedRole) {
+        currentRole = storedRole;
+        toggleFeatures();  // Actualizamos las funcionalidades según el rol
+    }
+};
+
+// Función para habilitar o deshabilitar funcionalidades según el rol del usuario
+function toggleFeatures() {
+    const adminFeatures = ["fillRow", "fillColumn", "exportSeats", "reserveSeats"];
+    adminFeatures.forEach((id) => {
+        document.getElementById(id).disabled = currentRole !== "admin";  // Solo el admin puede usar estos botones
+    });
+    document.getElementById("currentRole").textContent = currentRole === "admin" ? "Administrador" : "Usuario Regular";  // Mostramos el rol actual
+}
+
+        // Cambiar el estado de un asiento (ocupado o disponible)
+        function toggleSeat(event) {
+            const seat = event.target;
+            seat.classList.toggle("occupied");
+            updateCount();
+        }
+
+        // Actualizar el conteo de ocupados y disponibles
+        function updateCount() {
+            const occupiedSeats = document.querySelectorAll(".seat.occupied").length;
+            const totalSeats = currentRows * currentCols;
+            const availableSeats = totalSeats - occupiedSeats;
+            document.getElementById("occupiedCount").textContent = occupiedSeats;
+            document.getElementById("availableCount").textContent = availableSeats;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="index_2.js"></script>
+<script src="Tools Panel.js"></script>
+</body>
+</html>
